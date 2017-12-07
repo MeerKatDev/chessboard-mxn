@@ -15,8 +15,15 @@ class Game(boardWidth: Int, boardHeight: Int, pieces: List[Symbol]) {
     } yield (newPiece :: pieces)
   }
   
-  def searchSolutions: Set[Chessboard] = playPieces(pieces)
-   
+  def searchSolutions: Set[Chessboard] = {
+    val t0 = System.nanoTime()
+    val boards = playPieces(pieces)
+    val t1 = System.nanoTime()
+    println("It took " + (t1 - t0)/1000000000.0 + " seconds")  
+    println("There have been calculated " + boards.size + " non-unique boards")  
+    boards
+  }
+  
   def printChessboard(cb: Chessboard) = {
     for (y <- 0 until boardHeight) {
       for (x <- 0 until boardWidth) {
