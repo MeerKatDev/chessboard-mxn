@@ -2,7 +2,7 @@
 
 ## Known bugs:
  - it double counts equal pieces
- - 
+ - for 7x7 it calculates very long
 
 ## Usage
 
